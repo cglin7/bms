@@ -1,0 +1,27 @@
+server:
+  port: 9900
+
+logging:
+  config: classpath:log4j2/log4j2-spring.yml
+
+spring:
+  application:
+    name: bms
+  jpa:
+    hibernate:
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+      naming_strategy: org.hibernate.cfg.ImprovedNamingStrategy
+      ddl-auto: update
+    database: H2
+    generate-ddl: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.H2Dialect
+        hbm2ddl:
+          auto: none
+        show_sql: false
+  h2:
+    console:
+      path: /h2-console
+      enabled: true
